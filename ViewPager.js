@@ -2,6 +2,8 @@
 
 var React = require('react');
 var PropTypes = require('prop-types');
+var createReactClass = require('create-react-class');
+// var { PropTypes } = React;
 
 var ReactNative = require('react-native');
 var {
@@ -21,7 +23,7 @@ var DefaultViewPageIndicator = require('./DefaultViewPageIndicator');
 var deviceWidth = Dimensions.get('window').width;
 var ViewPagerDataSource = require('./ViewPagerDataSource');
 
-var ViewPager = React.createClass({
+var ViewPager = createReactClass({
   mixins: [TimerMixin],
 
   statics: {
@@ -235,7 +237,7 @@ var ViewPager = React.createClass({
     }
   },
 
-  _getPage(pageIdx: number, loop:boolean) {
+  _getPage(pageIdx: number, loop:boolean = false ) {
     var dataSource = this.props.dataSource;
     var pageID = dataSource.pageIdentities[pageIdx];
     return (
